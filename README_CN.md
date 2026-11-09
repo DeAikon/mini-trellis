@@ -243,6 +243,7 @@ mini-trellis doctor              # 检查当前项目集成状态
 ```
 
 - 查看已配置工具：`mini-trellis platforms`
+- `upgrade` 会根据当前运行副本的安装路径判断它由 npm、Bun 还是 pnpm 安装，并使用对应管理器的全局升级命令；可用 `--pm npm|bun|pnpm` 或 `MINI_TRELLIS_PM` 覆盖。项目本地依赖、npx/bunx 临时缓存与 Volta 安装会给出提示，而不是装到另一个全局前缀。
 - 卸载提醒：执行 `mini-trellis uninstall` 会移除 `.trellis/` 目录（含其中的知识文件），请先备份。路径映射与冲突处理见 [《迁移指南》](./docs/migration_CN.md)。
 
 </details>

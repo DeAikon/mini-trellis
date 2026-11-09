@@ -106,7 +106,11 @@ program
   .description("Upgrade the global mini-trellis CLI package")
   .option(
     "--tag <tag>",
-    "npm dist-tag or version to install (default follows current channel: latest, beta, or rc)",
+    "registry dist-tag or version to install (default follows current channel: latest, beta, or rc)",
+  )
+  .option(
+    "--pm <manager>",
+    "package manager to upgrade with (npm|bun|pnpm); defaults to the one that installed this copy",
   )
   .option("--dry-run", "Print the install command without running it")
   .action(async (options: Record<string, unknown>) => {
@@ -114,6 +118,7 @@ program
       await upgrade({
         tag: options.tag as string | undefined,
         dryRun: options.dryRun as boolean,
+        pm: options.pm as string | undefined,
       });
     } catch (error) {
       console.error(

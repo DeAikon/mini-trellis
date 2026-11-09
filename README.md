@@ -243,6 +243,7 @@ mini-trellis doctor              # Check installation status
 ```
 
 - Inspect configured tools with `mini-trellis platforms`.
+- `upgrade` detects whether this copy was installed with npm, Bun, or pnpm from its install path and runs the matching global command. Override it with `--pm npm|bun|pnpm` or `MINI_TRELLIS_PM`. A project-local, npx/bunx cache, or Volta copy is reported instead of being installed into a different prefix.
 - Before running `mini-trellis uninstall`, check `mini-trellis uninstall --help`: uninstall removes `.trellis/`, including knowledge files. See the [migration guide](./docs/migration.md) for path mappings and conflict handling.
 
 </details>
